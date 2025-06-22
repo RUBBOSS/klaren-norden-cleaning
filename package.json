@@ -6,6 +6,7 @@
 	"scripts": {
 		"start": "webpack serve --mode development",
 		"build": "webpack --mode production",
+		"build:netlify": "npm run build && cp -r public/audio public/icons public/logo dist/",
 		"test": "jest",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",

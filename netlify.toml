@@ -1,7 +1,7 @@
 # Netlify Build Configuration
 [build]
   publish = "dist"
-  command = "npm run build && cp -r public/* dist/ 2>/dev/null || true"
+  command = "npm run build && cp -r public/audio public/icons public/logo dist/ && ls -la dist/"
 
 [build.environment]
   NODE_VERSION = "18"
