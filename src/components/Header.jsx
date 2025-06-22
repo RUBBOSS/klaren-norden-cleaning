@@ -14,10 +14,15 @@ const Header = () => {
           {" "}
           {/* Logo and Company Info */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">              <img
+            <div className="flex items-center space-x-2">
+              <img
                 src="/logo/logo.png"
                 alt="KlarerNorden Logo"
                 className="h-24 w-24 object-contain"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  console.log("Logo failed to load");
+                }}
               />
               <div>
                 <h1

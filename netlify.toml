@@ -1,10 +1,26 @@
 # Netlify Build Configuration
 [build]
   publish = "dist"
-  command = "npm run build && cp -r public/audio dist/ && cp -r public/icons dist/"
+  command = "npm run build && cp -r public/* dist/ 2>/dev/null || true"
 
 [build.environment]
   NODE_VERSION = "18"
+
+# Headers for better caching
+[[headers]]
+  for = "/logo/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/audio/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
 
 # Redirect rules for SPA
 [[redirects]]
