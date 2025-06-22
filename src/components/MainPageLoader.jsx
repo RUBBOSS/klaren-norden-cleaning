@@ -1,5 +1,31 @@
 import React, { useEffect, useState } from "react";
 
+// ErrorBoundary component to catch rendering errors
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error, info) {
+    // You can log error here if needed
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
+          <div className="text-center text-red-600">
+            Ein Fehler ist aufgetreten. Bitte laden Sie die Seite neu.
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 const MainPageLoader = ({ onLoadingComplete }) => {
   const [currentStep, setCurrentStep] = useState(0); // Start with 0 for click-to-start
   const [isVisible, setIsVisible] = useState(true);
@@ -99,7 +125,9 @@ const MainPageLoader = ({ onLoadingComplete }) => {
         setTimeout(() => {
           setIsVisible(false);
           setTimeout(() => {
-            onLoadingComplete();
+            if (typeof onLoadingComplete === "function") {
+              onLoadingComplete();
+            }
           }, 500); // Wait for fade out animation
         }, 300);
       }, 2500);
@@ -110,61 +138,82 @@ const MainPageLoader = ({ onLoadingComplete }) => {
     };
   }, [currentStep, onLoadingComplete]);
 
+  // Dynamically preload images when loader is mounted
+  useEffect(() => {
+    const preloadLinks = [
+      { href: "/icons/cleaning.gif", as: "image" },
+      { href: "/icons/cleaningSpray.gif", as: "image" },
+    ];
+    const links = preloadLinks.map(({ href, as }) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = as;
+      link.href = href;
+      document.head.appendChild(link);
+      return link;
+    });
+    return () => {
+      links.forEach((link) => document.head.removeChild(link));
+    };
+  }, []);
+
   if (!isVisible) return null;
 
   return (
-    <div
-      className={`fixed inset-0 bg-white flex items-center justify-center z-50 transition-opacity duration-500 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
-    >
-      <div className="text-center">
-        {currentStep === 0 && (
-          <div>
-            <button
-              onClick={handleStartClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
+    <ErrorBoundary>
+      <div
+        className={`fixed inset-0 bg-white flex items-center justify-center z-50 transition-opacity duration-500 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className="text-center">
+          {currentStep === 0 && (
+            <div>
+              <button
+                onClick={handleStartClick}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
+              >
+                🧽 Reinigung
+              </button>
+            </div>
+          )}
+
+          {currentStep === 1 && (
+            <div
+              className={`transition-opacity duration-300 ${
+                stepVisible ? "opacity-100" : "opacity-0"
+              }`}
             >
-              🧽 Reinigung
-            </button>
-          </div>
-        )}
+              <img
+                src="/icons/cleaningSpray.gif"
+                alt="Cleaning Spray"
+                className="w-16 h-16 mx-auto"
+                onError={(e) => {
+                  e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHBhdGggZD0iTTEyIDJsMyA3cy0xIDEtMyAxLTMtMS0zLTFsMy03eiIvPgo8cGF0aCBkPSJNMTIgMjJ2LTVzLTEtMS0yLTItMi0xLTMtMWgtMiIvPgo8L3N2Zz4KPC9zdmc+';
+                }}
+              />
+            </div>
+          )}
 
-        {currentStep === 1 && (
-          <div
-            className={`transition-opacity duration-300 ${
-              stepVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img
-              src="/icons/cleaningSpray.gif"
-              alt="Cleaning Spray"
-              className="w-16 h-16 mx-auto"
-              onError={(e) => {
-                e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHBhdGggZD0iTTEyIDJsMyA3cy0xIDEtMyAxLTMtMS0zLTFsMy03eiIvPgo8cGF0aCBkPSJNMTIgMjJ2LTVzLTEtMS0yLTItMi0xLTMtMWgtMiIvPgo8L3N2Zz4KPC9zdmc+';
-              }}
-            />
-          </div>
-        )}
-
-        {currentStep === 2 && (
-          <div
-            className={`transition-opacity duration-300 ${
-              stepVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img
-              src="/icons/cleaning.gif"
-              alt="Cleaning"
-              className="w-16 h-16 mx-auto"
-              onError={(e) => {
-                e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMyIvPgo8cGF0aCBkPSJtNy4xNyAyMC4xMiAxMC4xNi0xMi4xNiIvPgo8L3N2Zz4KPC9zdmc+';
-              }}
-            />
-          </div>
-        )}
+          {currentStep === 2 && (
+            <div
+              className={`transition-opacity duration-300 ${
+                stepVisible ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src="/icons/cleaning.gif"
+                alt="Cleaning"
+                className="w-16 h-16 mx-auto"
+                onError={(e) => {
+                  e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB4PSIyMCIgeT0iMjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMyIvPgo8cGF0aCBkPSJtNy4xNyAyMC4xMiAxMC4xNi0xMi4xNiIvPgo8L3N2Zz4KPC9zdmc+';
+                }}
+              />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 
