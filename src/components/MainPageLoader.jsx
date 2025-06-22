@@ -27,7 +27,6 @@ const MainPageLoader = ({ onLoadingComplete }) => {
               playPromise
                 .then(() => {
                   playCount++;
-                  console.log(`Spray sound ${playCount} started`);
                 })
                 .catch((error) => {
                   console.log(
@@ -73,7 +72,7 @@ const MainPageLoader = ({ onLoadingComplete }) => {
         if (playPromise !== undefined) {
           playPromise
             .then(() => {
-              console.log("Window rubber sound started");
+              // Window rubber sound started successfully
             })
             .catch((error) => {
               console.log("Window rubber autoplay prevented");
@@ -126,7 +125,7 @@ const MainPageLoader = ({ onLoadingComplete }) => {
               onClick={handleStartClick}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
             >
-              🧽 Start Cleaning
+              🧽 Reinigung
             </button>
           </div>
         )}
