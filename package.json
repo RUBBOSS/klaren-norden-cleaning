@@ -1,0 +1,30 @@
+{
+  "name": "my-react-project",
+  "version": "1.0.0",
+  "description": "A simple React project",
+  "main": "src/index.jsx",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.2.3",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^27.0.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.10",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
