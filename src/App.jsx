@@ -1,16 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainPageLoader from "./components/MainPageLoader";
 import Header from "./components/Header";
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(true);
+	const [hasError, setHasError] = useState(false);
 
 	const handleLoadingComplete = () => {
 		setIsLoading(false);
 	};
 
+	// Safety timeout to prevent infinite loading
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			if (isLoading) {
+				console.warn("Loading took too long, skipping loader");
+				setIsLoading(false);
+			}
+		}, 10000); // 10 seconds max
+
+		return () => clearTimeout(timeout);
+	}, [isLoading]);
+
+	// Error boundary fallback
+	if (hasError) {
+		return (
+			<div className="min-h-screen bg-gray-50 flex items-center justify-center">
+				<div className="text-center">
+					<h1 className="text-2xl font-bold text-gray-800 mb-4">KlarerNorden</h1>
+					<p className="text-gray-600">Loading application...</p>
+				</div>
+			</div>
+		);
+	}
+
 	if (isLoading) {
-		return <MainPageLoader onLoadingComplete={handleLoadingComplete} />;
+		try {
+			return <MainPageLoader onLoadingComplete={handleLoadingComplete} />;
+		} catch (error) {
+			console.error("MainPageLoader error:", error);
+			setHasError(true);
+			return null;
+		}
 	}
 
 	return (

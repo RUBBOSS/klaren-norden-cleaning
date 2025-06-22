@@ -138,24 +138,31 @@ const MainPageLoader = ({ onLoadingComplete }) => {
     };
   }, [currentStep, onLoadingComplete]);
 
-  // Dynamically preload images when loader is mounted
+  // Dynamically preload images when loader is mounted (only if needed)
   useEffect(() => {
-    const preloadLinks = [
-      { href: "/icons/cleaning.gif", as: "image" },
-      { href: "/icons/cleaningSpray.gif", as: "image" },
-    ];
-    const links = preloadLinks.map(({ href, as }) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = as;
-      link.href = href;
-      document.head.appendChild(link);
-      return link;
-    });
-    return () => {
-      links.forEach((link) => document.head.removeChild(link));
-    };
-  }, []);
+    // Only preload if the loader is going to be shown
+    if (currentStep > 0) {
+      const preloadLinks = [
+        { href: "/icons/cleaning.gif", as: "image" },
+        { href: "/icons/cleaningSpray.gif", as: "image" },
+      ];
+      const links = preloadLinks.map(({ href, as }) => {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = as;
+        link.href = href;
+        document.head.appendChild(link);
+        return link;
+      });
+      return () => {
+        links.forEach((link) => {
+          if (document.head.contains(link)) {
+            document.head.removeChild(link);
+          }
+        });
+      };
+    }
+  }, [currentStep]);
 
   if (!isVisible) return null;
 
