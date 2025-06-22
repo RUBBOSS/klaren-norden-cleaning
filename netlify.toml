@@ -1,0 +1,13 @@
+# Netlify Build Configuration
+[build]
+  publish = "dist"
+  command = "npm run build && cp -r public/audio dist/ && cp -r public/icons dist/"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirect rules for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
