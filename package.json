@@ -16,6 +16,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@lottiefiles/dotlottie-react": "^0.14.2",
+		"lottie-react": "^2.4.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2"
 	},
