@@ -6,43 +6,67 @@ const Reviews = () => {
   const reviews = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      location: "Hamburg",
+      name: "Sarah Nissen",
+      location: "vor einem Monat",
       rating: 5,
-      text: "Absolutely fantastic service! The team was professional, thorough, and left my home sparkling clean. I couldn't be happier with the results.",
-      service: "Deep Cleaning"
+      text: "Ich möchte mich für die tolle Arbeit bedanken! Die Grundreinigung, nach der Modernisierung in unserem Haus, wurde 1a durchgeführt! Der Chef hat sogar noch extra Reinigungen durchgeführt (kostenfrei!). Vielen vielen Dank!! Wir können KlarerNorden nur weiterempfehlen!!",
+      service: "Grundreinigung"
     },
     {
       id: 2,
-      name: "Michael Schmidt",
-      location: "Bremen",
+      name: "Lara Richardsen",
+      location: "vor einem Monat",
       rating: 5,
-      text: "Klarer Norden has been cleaning our office for 6 months now. Always reliable, efficient, and the quality is consistently excellent.",
-      service: "Commercial Cleaning"
+      text: "Ich habe die Fenster- und Glasreinigung von KlarerNorden in Anspruch genommen und bin absolut begeistert vom Ergebnis! Die Fenster sehen aus wie neu, und der Unterschied war sofort sichtbar. Besonders beeindruckt hat mich die Gründlichkeit und Professionalität des Teams – pünktlich, freundlich und sehr sorgfältig bei der Arbeit.",
+      service: "Fenster- und Glasreinigung"
     },
     {
       id: 3,
-      name: "Emma Müller",
-      location: "Kiel",
+      name: "Aida Gevorgyan",
+      location: "vor 2 Monaten",
       rating: 5,
-      text: "The post-construction cleanup was amazing. They handled all the dust and debris perfectly. Highly recommend their services!",
-      service: "Post-Construction"
+      text: "Sehr gute Reinigung - Preis-Leistung sehr toll! Die Qualität hat meine Erwartungen übertroffen und der Service ist gut. Sind mir auch fair entgegengekommen, da ich außerhalb wohne!",
+      service: "Reinigungsservice"
     },
     {
       id: 4,
-      name: "David Wilson",
-      location: "Lübeck",
+      name: "Hedda",
+      location: "vor einem Monat",
       rating: 5,
-      text: "Professional window cleaning service. My windows have never been cleaner! Great attention to detail and very reasonable prices.",
-      service: "Window Cleaning"
+      text: "Ausgezeichneter Service und freundliches Personal! Ich bin sehr zufrieden mit dem Ergebnis und kann KlarerNorden wärmstens weiterempfehlen :)",
+      service: "Reinigungsservice"
     },
     {
       id: 5,
-      name: "Lisa Anderson",
-      location: "Rostock",
+      name: "Gajana G.",
+      location: "vor 2 Monaten",
       rating: 5,
-      text: "The team was punctual, friendly, and did an incredible job with our move-out cleaning. Got our full deposit back thanks to them!",
-      service: "Move-out Cleaning"
+      text: "Wir wollen uns herzlich beim Team vom KlarerNorden bedanken. Unser Sofa ist wieder sehr sauber und sieht neu aus. Danke!",
+      service: "Polsterreinigung"
+    },
+    {
+      id: 6,
+      name: "Gor",
+      location: "vor 2 Monaten",
+      rating: 5,
+      text: "Ich hatte Herrn Grigoryan mit meinem Wintergarten und den Fenstern am Haus beauftragt. Mit dem Endergebnis bin ich super zufrieden. Ich werde ihn auf jeden Fall erneut beauftragen.",
+      service: "Wintergarten- & Fensterreinigung"
+    },
+    {
+      id: 7,
+      name: "Kiara",
+      location: "vor einem Monat",
+      rating: 5,
+      text: "Eine Freundin von mir hat von euch erzählt und euch empfohlen. Danke nochmal für den kurzfristigen Termin vorgestern! Die Solarpanele meines Vaters sind wie neu und bereit für den Sommer 😊",
+      service: "Solaranlagen-Reinigung"
+    },
+    {
+      id: 8,
+      name: "Claudia Feddersen",
+      location: "vor einem Monat",
+      rating: 5,
+      text: "Super Arbeit, schnell und zuverlässig. Ist auf jeden Fall weiterzuempfehlen. Immer gerne wieder!",
+      service: "Reinigungsservice"
     }
   ];
 
@@ -74,10 +98,26 @@ const Reviews = () => {
     <section id="reviews" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Was unsere Kunden sagen</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers have to say about our cleaning services.
+            Echte Bewertungen von echten Kunden. Hier erfahren Sie, was unsere zufriedenen Kunden über unsere Reinigungsdienstleistungen sagen.
           </p>
+          <div className="mt-6">
+            <a 
+              href="https://www.google.com/search?sa=X&sca_esv=70c4004f48b74267&hl=de&gl=de&tbm=lcl&sxsrf=AE3TifOP_jnHj6dyFB3PJ-7F3Y61YO0vJw:1752382631943&q=KlarerNorden+Reinigungsdienst+Rezensionen&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxtDAysDA0tTQwNTQ1tDQEAnOLDYyMrxg1vXMSi1KL_PKLUlLzFIJSM_My00vz0otTMlPzikuAAlVAOjM_LzVvESvxagHOnVyCcwAAAA&rldimm=18208159051519111178&ved=2ahUKEwjLm6aChrmOAxWKQ_EDHTWJKqUQ9fQKegQIRBAF&biw=1366&bih=645&dpr=1#lkt=LocalPoiReviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl"
+            >
+              <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              Alle Bewertungen auf Google ansehen
+            </a>
+          </div>
         </div>
 
         {/* Featured Review Carousel */}
@@ -95,9 +135,11 @@ const Reviews = () => {
               
               <div className="text-center flex-1">
                 <div className="text-2xl mb-4">{renderStars(reviews[currentReview].rating)}</div>
-                <blockquote className="text-lg text-gray-700 mb-6 italic">
-                  "{reviews[currentReview].text}"
-                </blockquote>
+                <div className="h-32 flex items-center justify-center mb-6">
+                  <blockquote className="text-lg text-gray-700 italic overflow-hidden">
+                    "{reviews[currentReview].text}"
+                  </blockquote>
+                </div>
                 <div className="border-t pt-4">
                   <h4 className="text-xl font-semibold text-gray-800">{reviews[currentReview].name}</h4>
                   <p className="text-gray-600">{reviews[currentReview].location}</p>
@@ -135,20 +177,20 @@ const Reviews = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-            <p className="text-gray-600">Happy Customers</p>
+            <div className="text-4xl font-bold text-blue-600 mb-2">100+</div>
+            <p className="text-gray-600">Zufriedene Kunden</p>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-blue-600 mb-2">5★</div>
-            <p className="text-gray-600">Average Rating</p>
+            <p className="text-gray-600">Durchschnittliche Bewertung</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
-            <p className="text-gray-600">Projects Completed</p>
+            <div className="text-4xl font-bold text-blue-600 mb-2">300+</div>
+            <p className="text-gray-600">Projekte abgeschlossen</p>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-blue-600 mb-2">3+</div>
-            <p className="text-gray-600">Years Experience</p>
+            <p className="text-gray-600">Jahre Erfahrung</p>
           </div>
         </div>
       </div>

@@ -67,11 +67,24 @@ const AboutUs = () => {
             </button>
           </div>
 
-          {/* Right Content - Image and Stats */}
+          {/* Right Content - Video and Stats */}
           <div className="relative">
-            {/* Main Image Placeholder */}
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg h-96 flex items-center justify-center text-white text-xl font-semibold mb-6">
-              Professional Cleaning Team
+            {/* Main Video */}
+            <div className="rounded-lg overflow-hidden h-96 mb-6">
+              <video 
+                className="w-full h-full object-cover"
+                autoPlay 
+                muted 
+                playsInline
+              >
+                <source 
+                  src="https://media.istockphoto.com/id/1422277971/video/happy-latin-american-woman-leading-a-group-of-professional-cleaners-holding-a-basket-of.mp4?s=mp4-640x640-is&k=20&c=hZZqAp_-84aQzQcxvfNAK12ztcmhOn05vfz9S4_IJyY=" 
+                  type="video/mp4" 
+                />
+                <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xl font-semibold">
+                  Professional Cleaning Team
+                </div>
+              </video>
             </div>
 
             {/* Stats Overlay */}

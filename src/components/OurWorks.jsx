@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BeforeAfterSlider from './BeforeAfterSlider';
 
 const OurWorks = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -9,54 +10,57 @@ const OurWorks = () => {
       category: 'residential',
       title: 'Modern Apartment Deep Clean',
       description: 'Complete deep cleaning of a 3-bedroom apartment including kitchen, bathrooms, and living areas.',
-      image: 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Apartment+Cleaning',
-      beforeAfter: true
+      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&auto=format',
+      beforeAfter: true,
+      beforeImage: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop&auto=format',
+      afterImage: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&auto=format'
     },
     {
       id: 2,
       category: 'commercial',
       title: 'Office Building Maintenance',
       description: 'Regular cleaning service for a 5-story office building with 50+ employees.',
-      image: 'https://via.placeholder.com/400x300/10b981/ffffff?text=Office+Cleaning',
-      beforeAfter: false
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop&auto=format'
     },
     {
       id: 3,
       category: 'residential',
       title: 'Post-Construction Cleanup',
       description: 'Thorough cleanup after home renovation including dust removal and detail cleaning.',
-      image: 'https://via.placeholder.com/400x300/f59e0b/ffffff?text=Construction+Cleanup',
-      beforeAfter: true
+      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop&auto=format',
+      beforeAfter: true,
+      beforeImage: 'https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=400&h=300&fit=crop&auto=format',
+      afterImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop&auto=format'
     },
     {
       id: 4,
       category: 'commercial',
       title: 'Restaurant Kitchen Deep Clean',
       description: 'Professional kitchen cleaning meeting health department standards.',
-      image: 'https://via.placeholder.com/400x300/ef4444/ffffff?text=Restaurant+Kitchen',
-      beforeAfter: false
+      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&auto=format'
     },
     {
       id: 5,
       category: 'residential',
       title: 'Move-Out Cleaning Service',
       description: 'Complete move-out cleaning ensuring full security deposit return.',
-      image: 'https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Move+Out+Clean',
-      beforeAfter: true
+      image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=300&fit=crop&auto=format',
+      beforeAfter: true,
+      beforeImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&auto=format',
+      afterImage: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=300&fit=crop&auto=format'
     },
     {
       id: 6,
       category: 'commercial',
       title: 'Medical Facility Sanitization',
       description: 'Specialized cleaning for medical office with hospital-grade disinfection.',
-      image: 'https://via.placeholder.com/400x300/06b6d4/ffffff?text=Medical+Cleaning',
-      beforeAfter: false
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&auto=format'
     }
   ];
 
   const categories = [
-    { key: 'all', label: 'All Projects' },
     { key: 'residential', label: 'Residential' },
+    { key: 'all', label: 'All Projects' },
     { key: 'commercial', label: 'Commercial' }
   ];
 
@@ -98,39 +102,46 @@ const OurWorks = () => {
           {filteredWorks.map((work) => (
             <div key={work.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
               <div className="relative">
-                <img 
-                  src={work.image} 
-                  alt={work.title}
-                  className="w-full h-48 object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
-                  }}
-                />
-                <div 
-                  className="w-full h-48 bg-gradient-to-br from-blue-500 to-blue-600 hidden items-center justify-center text-white font-semibold text-lg"
-                  style={{ display: 'none' }}
-                >
-                  {work.title}
-                </div>
-                {work.beforeAfter && (
-                  <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Before/After
-                  </span>
+                {work.beforeAfter ? (
+                  <BeforeAfterSlider 
+                    beforeImage={work.beforeImage}
+                    afterImage={work.afterImage}
+                    className="rounded-t-lg"
+                  />
+                ) : (
+                  <>
+                    <img 
+                      src={work.image} 
+                      alt={work.title}
+                      className="w-full h-48 object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div 
+                      className="w-full h-48 bg-gradient-to-br from-blue-500 to-blue-600 hidden items-center justify-center text-white font-semibold text-lg"
+                      style={{ display: 'none' }}
+                    >
+                      {work.title}
+                    </div>
+                  </>
                 )}
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{work.title}</h3>
                 <p className="text-gray-600 mb-4">{work.description}</p>
-                <span className="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
-                  {work.category.charAt(0).toUpperCase() + work.category.slice(1)}
-                </span>
+                <div className="flex justify-between items-center">
+                  <span className="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+                    {work.category.charAt(0).toUpperCase() + work.category.slice(1)}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="flex justify-center mt-12">
           <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
             View More Projects
           </button>

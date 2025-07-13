@@ -155,9 +155,26 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300 text-sm">
-            © 2024 Klarer Norden. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center text-gray-400 text-xs">
+              <span className="mr-2">Created by</span>
+              <a 
+                href="https://ruben1992.netlify.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition duration-300"
+              >
+                <img 
+                  src="/logo/RMlogo.png" 
+                  alt="RM Logo" 
+                  className="h-4 w-auto"
+                />
+              </a>
+            </div>
+              <p className="text-gray-300 text-sm mt-2">
+              © 2024 Klarer Norden. All rights reserved.
+            </p>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-300 hover:text-white text-sm transition duration-300">Privacy Policy</a>
             <a href="#" className="text-gray-300 hover:text-white text-sm transition duration-300">Terms of Service</a>
