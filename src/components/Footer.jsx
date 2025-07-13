@@ -1,5 +1,4 @@
 import React from 'react';
-import rmLogo from '/logo/RMlogo.png';
 
 const Footer = () => {
   return (
@@ -166,7 +165,7 @@ const Footer = () => {
                 className="hover:opacity-80 transition duration-300"
               >
                 <img 
-                  src={rmLogo} 
+                  src="/logo/RMlogo.png" 
                   alt="RM Logo" 
                   className="h-4 w-auto"
                   onError={(e) => {
