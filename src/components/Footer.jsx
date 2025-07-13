@@ -165,7 +165,7 @@ const Footer = () => {
                 className="hover:opacity-80 transition duration-300"
               >
                 <img 
-                  src="/logo/RMlogo.png" 
+                  src={process.env.PUBLIC_URL + '/logo/RMlogo.png'} 
                   alt="RM Logo" 
                   className="h-4 w-auto"
                   onError={(e) => {
