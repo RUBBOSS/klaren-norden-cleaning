@@ -168,7 +168,17 @@ const Footer = () => {
                   src="/logo/RMlogo.png" 
                   alt="RM Logo" 
                   className="h-4 w-auto"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'inline';
+                  }}
                 />
+                <span 
+                  className="text-blue-400 hover:text-blue-300 font-semibold"
+                  style={{ display: 'none' }}
+                >
+                  RM
+                </span>
               </a>
             </div>
               <p className="text-gray-300 text-sm mt-2">
