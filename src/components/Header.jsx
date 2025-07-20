@@ -44,23 +44,23 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <a
               href="#services"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors focus:outline-none"
             >
               Services
             </a>
             <a
               href="#about"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors focus:outline-none"
             >
               Über uns
             </a>
             <a
               href="#contact"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors focus:outline-none"
             >
               Kontakt
             </a>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm focus:outline-none">
               Angebot anfordern
             </button>
           </nav>{" "}
@@ -103,27 +103,27 @@ const Header = () => {
             <nav className="flex flex-col space-y-4">
               <a
                 href="#services"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1 focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Services
               </a>
               <a
                 href="#about"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1 focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Über uns
               </a>
               <a
                 href="#contact"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1 focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Kontakt
               </a>
               <button
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm mx-2 mt-2"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm mx-2 mt-2 focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Angebot anfordern
