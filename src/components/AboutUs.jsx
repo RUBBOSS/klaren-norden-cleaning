@@ -10,24 +10,24 @@ const AboutUs = () => {
 
   const features = [
     {
-      icon: '🛡️',
-      title: 'Fully Insured',
-      description: 'Complete insurance coverage for your peace of mind'
+      icon: '/icons/cleanHouse.gif',
+      title: 'Unterhaltsreinigung',
+      description: 'Regelmäßige Reinigung für Büro-, Gewerbe- und Privatflächen – zuverlässig und gründlich!'
     },
     {
-      icon: '🌿',
-      title: 'Eco-Friendly',
-      description: 'Safe, green cleaning products that protect your family'
+      icon: '/icons/glassCleaning.gif',
+      title: 'Glas und Fensterreinigung',
+      description: 'Streifenfreie Reinigung von Fenstern, Glasfassaden und Glastrennwänden für klare Sicht!'
     },
     {
-      icon: '⭐',
-      title: 'Quality Guaranteed',
-      description: '100% satisfaction guarantee on all our services'
+      icon: '/icons/cleaningTools.gif',
+      title: 'Grund und Endreinigung',
+      description: 'Tiefenreinigung nach Renovierungen, Bauarbeiten oder vor/nach dem Einzug.'
     },
     {
-      icon: '👥',
-      title: 'Professional Team',
-      description: 'Trained and experienced cleaning professionals'
+      icon: '/icons/trolley.gif',
+      title: 'Umzugsservice und Entrümpelung',
+      description: 'Komplette Unterstützung beim Umzug – inkl. Reinigung & Entsorgung!'
     }
   ];
 
@@ -37,23 +37,52 @@ const AboutUs = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">About Klarer Norden</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+              Über Klarer Norden
+            </h2>
             <p className="text-lg text-gray-600 mb-6">
-              We are a professional cleaning company serving Northern Germany with pride and dedication. 
-              Our mission is to provide exceptional cleaning services that exceed our customers' expectations 
-              while maintaining the highest standards of quality and reliability.
+              Der Name KlarerNorden steht für mehr als nur Sauberkeit. Er
+              verbindet zwei zentrale Werte unserer Arbeit: „Klar" – für
+              Reinheit, Transparenz und Verlässlichkeit. Norden" – symbolisiert
+              unsere Herkunft. KlarerNorden steht für zuverlässige, gründliche
+              und professionelle Reinigungsdienstleistungen in ganz
+              Schleswig-Holstein. Ob regelmäßige Unterhaltsreinigung,
+              streifenfreie Fensterpflege oder umfassende Grundreinigung – wir
+              sorgen für Sauberkeit, auf die Sie sich verlassen können.
             </p>
-            <p className="text-gray-600 mb-8">
-              Founded with a vision to transform spaces and lives, we combine traditional cleaning methods 
-              with modern techniques and eco-friendly products. Our team of experienced professionals is 
-              committed to delivering spotless results every time.
+            <p className="text-lg text-gray-600 mb-6">
+              Unser Team besteht aus Fachkräften mit einem Blick fürs Detail.
+              Pünktlichkeit, Diskretion und transparente Kommunikation sind für
+              uns selbstverständlich.
+            </p>
+            <p className="text-lg text-gray-600 mb-6">
+              Wir arbeiten effizient, umweltbewusst und
+              individuell nach Ihren Bedürfnissen – für private Haushalte,
+              Unternehmen oder beim Umzug.
             </p>
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <span className="text-2xl">{feature.icon}</span>
+                  {feature.icon.startsWith('/') ? (
+                    <img 
+                      src={feature.icon} 
+                      alt={feature.title}
+                      className="w-20 h-20 mt-1"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'inline';
+                      }}
+                    />
+                  ) : null}
+                  <span 
+                    className="text-3xl" 
+                    style={{ display: feature.icon.startsWith('/') ? 'none' : 'inline' }}
+                  >
+                    {feature.icon.startsWith('/') ? '🏢' : feature.icon}
+                  </span>
                   <div>
                     <h4 className="font-semibold text-gray-800">{feature.title}</h4>
                     <p className="text-sm text-gray-600">{feature.description}</p>
@@ -61,10 +90,6 @@ const AboutUs = () => {
                 </div>
               ))}
             </div>
-
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-              Learn More About Us
-            </button>
           </div>
 
           {/* Right Content - Video and Stats */}

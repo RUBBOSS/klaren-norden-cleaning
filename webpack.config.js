@@ -64,5 +64,10 @@ module.exports = {
 		open: true,
 		hot: true,
 	},
+	performance: {
+		maxAssetSize: 2000000, // 2MB - to accommodate your GIF files
+		maxEntrypointSize: 2000000, // 2MB
+		hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
+	},
 	mode: "development",
 };
