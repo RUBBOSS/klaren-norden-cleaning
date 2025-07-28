@@ -1,34 +1,38 @@
-import React from 'react';
+import React from "react";
 
 const AboutUs = () => {
   const stats = [
-    { number: '500+', label: 'Happy Customers' },
-    { number: '3+', label: 'Years Experience' },
-    { number: '1000+', label: 'Projects Completed' },
-    { number: '24/7', label: 'Customer Support' }
+    { number: "500+", label: "Happy Customers" },
+    { number: "3+", label: "Years Experience" },
+    { number: "1000+", label: "Projects Completed" },
+    { number: "24/7", label: "Customer Support" },
   ];
 
   const features = [
     {
-      icon: '/icons/cleanHouse.gif',
-      title: 'Unterhaltsreinigung',
-      description: 'Regelmäßige Reinigung für Büro-, Gewerbe- und Privatflächen – zuverlässig und gründlich!'
+      icon: "/icons/cleanHouse.gif",
+      title: "Unterhaltsreinigung",
+      description:
+        "Regelmäßige Reinigung für Büro-, Gewerbe- und Privatflächen – zuverlässig und gründlich!",
     },
     {
-      icon: '/icons/glassCleaning.gif',
-      title: 'Glas und Fensterreinigung',
-      description: 'Streifenfreie Reinigung von Fenstern, Glasfassaden und Glastrennwänden für klare Sicht!'
+      icon: "/icons/glassCleaning.gif",
+      title: "Glas und Fensterreinigung",
+      description:
+        "Streifenfreie Reinigung von Fenstern, Glasfassaden und Glastrennwänden für klare Sicht!",
     },
     {
-      icon: '/icons/cleaningTools.gif',
-      title: 'Grund und Endreinigung',
-      description: 'Tiefenreinigung nach Renovierungen, Bauarbeiten oder vor/nach dem Einzug.'
+      icon: "/icons/cleaningTools.gif",
+      title: "Grund und Endreinigung",
+      description:
+        "Tiefenreinigung nach Renovierungen, Bauarbeiten oder vor/nach dem Einzug.",
     },
     {
-      icon: '/icons/trolley.gif',
-      title: 'Umzugsservice und Entrümpelung',
-      description: 'Komplette Unterstützung beim Umzug – inkl. Reinigung & Entsorgung!'
-    }
+      icon: "/icons/trolley.gif",
+      title: "Umzugsservice und Entrümpelung",
+      description:
+        "Komplette Unterstützung beim Umzug – inkl. Reinigung & Entsorgung!",
+    },
   ];
 
   return (
@@ -56,36 +60,41 @@ const AboutUs = () => {
               uns selbstverständlich.
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              Wir arbeiten effizient, umweltbewusst und
-              individuell nach Ihren Bedürfnissen – für private Haushalte,
-              Unternehmen oder beim Umzug.
+              Wir arbeiten effizient, umweltbewusst und individuell nach Ihren
+              Bedürfnissen – für private Haushalte, Unternehmen oder beim Umzug.
             </p>
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  {feature.icon.startsWith('/') ? (
-                    <img 
-                      src={feature.icon} 
+                  {feature.icon.startsWith("/") ? (
+                    <img
+                      src={feature.icon}
                       alt={feature.title}
                       className="w-20 h-20 mt-1"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'inline';
+                        e.target.style.display = "none";
+                        e.target.nextSibling.style.display = "inline";
                       }}
                     />
                   ) : null}
-                  <span 
-                    className="text-3xl" 
-                    style={{ display: feature.icon.startsWith('/') ? 'none' : 'inline' }}
+                  <span
+                    className="text-3xl"
+                    style={{
+                      display: feature.icon.startsWith("/") ? "none" : "inline",
+                    }}
                   >
-                    {feature.icon.startsWith('/') ? '🏢' : feature.icon}
+                    {feature.icon.startsWith("/") ? "🏢" : feature.icon}
                   </span>
                   <div>
-                    <h4 className="font-semibold text-gray-800">{feature.title}</h4>
-                    <p className="text-sm text-gray-600">{feature.description}</p>
+                    <h4 className="font-semibold text-gray-800">
+                      {feature.title}
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -96,15 +105,15 @@ const AboutUs = () => {
           <div className="relative">
             {/* Main Video */}
             <div className="rounded-lg overflow-hidden h-96 mb-6">
-              <video 
+              <video
                 className="w-full h-full object-cover"
-                autoPlay 
-                muted 
+                autoPlay
+                muted
                 playsInline
               >
-                <source 
-                  src="https://media.istockphoto.com/id/1422277971/video/happy-latin-american-woman-leading-a-group-of-professional-cleaners-holding-a-basket-of.mp4?s=mp4-640x640-is&k=20&c=hZZqAp_-84aQzQcxvfNAK12ztcmhOn05vfz9S4_IJyY=" 
-                  type="video/mp4" 
+                <source
+                  src="https://media.istockphoto.com/id/1422277971/video/happy-latin-american-woman-leading-a-group-of-professional-cleaners-holding-a-basket-of.mp4?s=mp4-640x640-is&k=20&c=hZZqAp_-84aQzQcxvfNAK12ztcmhOn05vfz9S4_IJyY="
+                  type="video/mp4"
                 />
                 <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xl font-semibold">
                   Professional Cleaning Team
@@ -115,8 +124,13 @@ const AboutUs = () => {
             {/* Stats Overlay */}
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-md p-6 text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-md p-6 text-center"
+                >
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    {stat.number}
+                  </div>
                   <p className="text-gray-600 text-sm">{stat.label}</p>
                 </div>
               ))}
@@ -126,33 +140,72 @@ const AboutUs = () => {
 
         {/* Why Choose Us Section */}
         <div className="mt-16 text-center">
-          <h3 className="text-3xl font-bold text-gray-800 mb-8">Why Choose Klarer Norden?</h3>
+          <h3 className="text-3xl font-bold text-gray-800 mb-8">
+            Warum Sie KlarerNorden wählen sollten?
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
+              <div className=" flex items-center justify-center mx-auto mb-4">
+                <img 
+                  src="/icons/person.gif" 
+                  alt="Professional Team"
+                  className="w-20 h-20"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'inline';
+                  }}
+                />
+                <span className="text-2xl" style={{ display: 'none' }}>🎯</span>
               </div>
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">Attention to Detail</h4>
+              <h4 className="text-xl font-semibold text-gray-800 mb-3">
+                Gründliche & professionelle Reinigung
+              </h4>
               <p className="text-gray-600">
-                We don't just clean; we perfect. Every corner, every surface receives our meticulous attention.
+                Wir bieten mehr als nur Sauberkeit – wir perfektionieren jede
+                Fläche. Jede Ecke erhält unsere volle Aufmerksamkeit.
               </p>
             </div>
             <div className="p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">⚡</span>
+              <div className=" flex items-center justify-center mx-auto mb-4">
+                <img 
+                  src="/icons/target.gif" 
+                  alt="Schnell und effizient"
+                  className="w20 h-20"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'inline';
+                  }}
+                />
+                <span className="text-2xl" style={{ display: 'none' }}>⚡</span>
               </div>
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">Fast & Efficient</h4>
+              <h4 className="text-xl font-semibold text-gray-800 mb-3">
+                Schnell, effizient & zuverlässig
+              </h4>
               <p className="text-gray-600">
-                Our trained team works efficiently without compromising on quality, saving you time.
+                Unser erfahrenes Reinigungsteam arbeitet zügig und präzise. Wir garantieren höchste Effizienz. Ideal für alle, die Wert auf einen zeitsparenden Reinigungsservice legen.
               </p>
             </div>
             <div className="p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💎</span>
+              <div className="flex items-center justify-center mx-auto mb-4">
+                <img 
+                  src="/icons/diamond.gif" 
+                  alt="Premium Service"
+                  className="w-20 h-20"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'inline';
+                  }}
+                />
+                <span className="text-2xl" style={{ display: 'none' }}>💎</span>
               </div>
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">Premium Service</h4>
+              <h4 className="text-xl font-semibold text-gray-800 mb-3">
+                Hochwertiger Premium-Reinigungsservice
+              </h4>
               <p className="text-gray-600">
-                Experience luxury cleaning with premium products and exceptional customer service.
+                Erleben Sie Reinigung auf höchstem Niveau - mit ausgewählten Reinigungsprodukten, persönlichem Service und einem Ergebnis, das überzeugt.
               </p>
             </div>
           </div>
