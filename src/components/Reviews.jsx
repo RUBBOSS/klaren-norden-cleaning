@@ -177,19 +177,19 @@ const Reviews = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">100+</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">279+</div>
             <p className="text-gray-600">Zufriedene Kunden</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">5★</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">4.5★</div>
             <p className="text-gray-600">Durchschnittliche Bewertung</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">300+</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">340+</div>
             <p className="text-gray-600">Projekte abgeschlossen</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">3+</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">1+</div>
             <p className="text-gray-600">Jahre Erfahrung</p>
           </div>
         </div>

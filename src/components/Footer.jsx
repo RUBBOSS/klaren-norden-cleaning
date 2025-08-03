@@ -85,8 +85,8 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">Klarer Norden</h3>
             <p className="text-gray-300 mb-4 max-w-md">
-              Professional cleaning services across Northern Germany. We pride ourselves on delivering exceptional 
-              quality and customer satisfaction in every project.
+              Professionelle Reinigungsdienstleistungen in ganz Norddeutschland. Wir sind stolz darauf, 
+              außergewöhnliche Qualität und Kundenzufriedenheit in jedem Projekt zu liefern.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -111,30 +111,25 @@ const Footer = () => {
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition duration-300 focus:outline-none">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <h4 className="text-lg font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Residential Cleaning</a></li>
-              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Commercial Cleaning</a></li>
-              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Deep Cleaning</a></li>
-              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Window Cleaning</a></li>
-              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Post-Construction</a></li>
-              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Move-in/Move-out</a></li>
+              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Unterhaltsreinigung</a></li>
+              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Glas und Fensterreinigung</a></li>
+              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Grund und Endreinigung</a></li>
+              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Umzugsservice und Entrümpelung</a></li>
+              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Teppich & Polsterreinigung</a></li>
+              <li><a href="#" className="hover:text-white transition duration-300 focus:outline-none">Umweltfreundliche Optionen</a></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
             <div className="space-y-3 text-gray-300">
               <div className="flex items-center">
                 <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,8 +172,8 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div className="text-sm">
-                  <div className="mb-1"><span className="font-medium">Mon-Sat:</span> 7:30 AM–6 PM</div>
-                  <div><span className="font-medium">Sunday:</span> Closed</div>
+                  <div className="mb-1"><span className="font-medium">Mo-Sa:</span> 7:00-20:00 Uhr</div>
+                  <div><span className="font-medium">Sonntag:</span> Geschlossen</div>
                 </div>
               </div>
             </div>
@@ -220,7 +215,6 @@ const Footer = () => {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-300 hover:text-white text-sm transition duration-300 focus:outline-none">Privacy Policy</a>
             <a href="#" className="text-gray-300 hover:text-white text-sm transition duration-300 focus:outline-none">Terms of Service</a>
-            <a href="#" className="text-gray-300 hover:text-white text-sm transition duration-300 focus:outline-none">Sitemap</a>
           </div>
         </div>
       </div>

@@ -14,16 +14,18 @@ const Header = () => {
       setIsScrolled(scrollTop > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${
-      isScrolled 
-        ? 'bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20' 
-        : 'bg-white shadow-sm border-b border-gray-100'
-    }`}>
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20"
+          : "bg-white shadow-sm border-b border-gray-100"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {" "}
@@ -75,7 +77,6 @@ const Header = () => {
             >
               Kontakt
             </a>
-           
           </nav>{" "}
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -113,13 +114,13 @@ const Header = () => {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-gray-100 py-4">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4 text-center">
               <a
                 href="#services"
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1 focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Services
+                Leistungen
               </a>
               <a
                 href="#about"
@@ -135,12 +136,6 @@ const Header = () => {
               >
                 Kontakt
               </a>
-              <button
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm mx-2 mt-2 focus:outline-none"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Angebot anfordern
-              </button>
             </nav>
           </div>
         )}

@@ -6,6 +6,14 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, className = "" }) => {
   const containerRef = useRef(null);
   const [initialized, setInitialized] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(50); // Track slider position as percentage
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
+
+  // Add console logs to debug
+  console.log('BeforeAfterSlider props:', { beforeImage, afterImage });
 
   const initializeSlider = () => {
     if (containerRef.current && !initialized) {
@@ -27,7 +35,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, className = "" }) => {
     return () => {
       window.removeEventListener('resize', initializeSlider);
     };
-  }, [initialized]);
+  }, [initialized, imagesLoaded]);
 
   const dragTheImg = (e) => {
     if (!containerRef.current) return;
@@ -49,7 +57,12 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, className = "" }) => {
   };
 
   return (
-    <div className={`relative w-full h-48 overflow-hidden ${className}`}>
+    <div className={`relative w-full aspect-[4/3] overflow-hidden ${className}`}>
+      {!imagesLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+          <div className="text-gray-500">Loading images...</div>
+        </div>
+      )}
       <div
         className="relative w-full h-full cursor-ew-resize"
         ref={containerRef}
@@ -66,6 +79,8 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, className = "" }) => {
               objectFit: 'cover',
               objectPosition: 'center'
             }}
+            onLoad={handleImageLoad}
+            onError={(e) => console.error('Error loading after image:', e)}
           />
           {sliderPosition < 90 && (
             <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium z-20">
@@ -90,11 +105,13 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, className = "" }) => {
             <img 
               src={beforeImage} 
               alt="Before" 
-              className="w-full h-full filter grayscale"
+              className="w-full h-full"
               style={{ 
                 objectFit: 'cover',
                 objectPosition: 'center'
               }}
+              onLoad={handleImageLoad}
+              onError={(e) => console.error('Error loading before image:', e)}
             />
           </div>
           {sliderPosition > 10 && (

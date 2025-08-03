@@ -1,11 +1,22 @@
 import React from "react";
 
 const AboutUs = () => {
-  const stats = [
+  const videoStats = [
     { number: "279+", label: "Zufriedene Kunden" },
     { number: "1+", label: "Jahre Erfahrung" },
+  ];
+
+  const textStats = [
     { number: "340+", label: "Abgeschlossene Projekte" },
     { number: "24/7", label: "Kundenservice" },
+  ];
+
+  // Combined stats for mobile display
+  const allStats = [
+    { number: "340+", label: "Abgeschlossene Projekte" },
+    { number: "24/7", label: "Kundenservice" },
+    { number: "279+", label: "Zufriedene Kunden" },
+    { number: "1+", label: "Jahre Erfahrung" },
   ];
 
   return (
@@ -17,7 +28,7 @@ const AboutUs = () => {
             <h2 className="text-4xl font-bold text-gray-800 mb-6">
               Über Klarer Norden
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-gray-600 mb-4">
               Der Name KlarerNorden steht für mehr als nur Sauberkeit. Er
               verbindet zwei zentrale Werte unserer Arbeit: „Klar" – für
               Reinheit, Transparenz und Verlässlichkeit. Norden" – symbolisiert
@@ -27,7 +38,7 @@ const AboutUs = () => {
               streifenfreie Fensterpflege oder umfassende Grundreinigung – wir
               sorgen für Sauberkeit, auf die Sie sich verlassen können.
             </p>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-gray-600 mb-4">
               Unser Team besteht aus Fachkräften mit einem Blick fürs Detail.
               Pünktlichkeit, Diskretion und transparente Kommunikation sind für
               uns selbstverständlich.
@@ -36,6 +47,21 @@ const AboutUs = () => {
               Wir arbeiten effizient, umweltbewusst und individuell nach Ihren
               Bedürfnissen – für private Haushalte, Unternehmen oder beim Umzug.
             </p>
+
+            {/* Stats at bottom of left section - Hidden on mobile */}
+            <div className="hidden lg:grid grid-cols-2 gap-4 mt-6">
+              {textStats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 text-center h-24 flex flex-col justify-center"
+                >
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    {stat.number}
+                  </div>
+                  <p className="text-gray-600 text-sm">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Right Content - Video and Stats */}
@@ -58,12 +84,12 @@ const AboutUs = () => {
               </video>
             </div>
 
-            {/* Stats Overlay */}
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat, index) => (
+            {/* Stats Overlay - Hidden on mobile */}
+            <div className="hidden lg:grid grid-cols-2 mt-[72px] gap-4">
+              {videoStats.map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg shadow-md p-6 text-center"
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 text-center h-24 flex flex-col justify-center"
                 >
                   <div className="text-3xl font-bold text-blue-600 mb-2">
                     {stat.number}
@@ -75,14 +101,31 @@ const AboutUs = () => {
           </div>
         </div>
 
+        {/* Mobile Stats Section - Visible only on mobile */}
+        <div className="lg:hidden mt-8">
+          <div className="grid grid-cols-2 gap-4">
+            {allStats.map((stat, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 text-center h-24 flex flex-col justify-center"
+              >
+                <div className="text-3xl font-bold text-blue-600 mb-2">
+                  {stat.number}
+                </div>
+                <p className="text-gray-600 text-sm">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Why Choose Us Section */}
-        <div className="mt-16 text-center">
+        <div className="mt-28 text-center">
           <h3 className="text-3xl font-bold text-gray-800 mb-8">
             Warum Sie KlarerNorden wählen sollten?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6">
-              <div className=" flex items-center justify-center mx-auto mb-4">
+            <div className="p-6 text-center">
+              <div className="flex items-center justify-center mx-auto mb-4">
                 <img
                   src="/icons/person.gif"
                   alt="Professional Team"
@@ -105,12 +148,12 @@ const AboutUs = () => {
                 Fläche. Jede Ecke erhält unsere volle Aufmerksamkeit.
               </p>
             </div>
-            <div className="p-6">
-              <div className=" flex items-center justify-center mx-auto mb-4">
+            <div className="p-6 text-center">
+              <div className="flex items-center justify-center mx-auto mb-4">
                 <img
                   src="/icons/target.gif"
                   alt="Schnell und effizient"
-                  className="w20 h-20"
+                  className="w-20 h-20"
                   loading="lazy"
                   onError={(e) => {
                     e.target.style.display = "none";
@@ -130,7 +173,7 @@ const AboutUs = () => {
                 einen zeitsparenden Reinigungsservice legen.
               </p>
             </div>
-            <div className="p-6">
+            <div className="p-6 text-center">
               <div className="flex items-center justify-center mx-auto mb-4">
                 <img
                   src="/icons/diamond.gif"
