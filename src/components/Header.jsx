@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white shadow-sm border-b border-gray-100">
+    <header className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${
+      isScrolled 
+        ? 'bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20' 
+        : 'bg-white shadow-sm border-b border-gray-100'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {" "}
@@ -46,7 +61,7 @@ const Header = () => {
               href="#services"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors focus:outline-none"
             >
-              Services
+              Leistungen
             </a>
             <a
               href="#about"
@@ -60,9 +75,7 @@ const Header = () => {
             >
               Kontakt
             </a>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm focus:outline-none">
-              Angebot anfordern
-            </button>
+           
           </nav>{" "}
           {/* Mobile menu button */}
           <div className="md:hidden">
