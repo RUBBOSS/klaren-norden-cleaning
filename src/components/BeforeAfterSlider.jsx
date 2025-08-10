@@ -84,7 +84,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, className = "" }) => {
           />
           {sliderPosition < 90 && (
             <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium z-20">
-              After
+              Nach
             </div>
           )}
         </div>
@@ -116,7 +116,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, className = "" }) => {
           </div>
           {sliderPosition > 10 && (
             <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-medium z-20">
-              Before
+              Vor
             </div>
           )}
         </div>

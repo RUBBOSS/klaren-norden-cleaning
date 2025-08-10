@@ -136,18 +136,6 @@ const OurWorks = () => {
                   </>
                 )}
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  {work.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{work.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
-                    {work.category.charAt(0).toUpperCase() +
-                      work.category.slice(1)}
-                  </span>
-                </div>
-              </div>
             </div>
           ))}
         </div>

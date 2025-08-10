@@ -122,28 +122,28 @@ const Reviews = () => {
 
         {/* Featured Review Carousel */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="bg-white rounded-lg shadow-lg p-8 relative">
-            <div className="flex items-center justify-between mb-6">
+          <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 relative">
+            <div className="flex items-start sm:items-center justify-between mb-6 gap-4">
               <button 
                 onClick={prevReview}
-                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition duration-300"
+                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition duration-300 flex-shrink-0"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               
               <div className="text-center flex-1">
-                <div className="text-2xl mb-4">{renderStars(reviews[currentReview].rating)}</div>
-                <div className="h-32 flex items-center justify-center mb-6">
-                  <blockquote className="text-lg text-gray-700 italic overflow-hidden">
+                <div className="text-xl sm:text-2xl mb-4">{renderStars(reviews[currentReview].rating)}</div>
+                <div className="min-h-32 md:h-32 flex items-center justify-center mb-6 px-4 sm:px-0">
+                  <blockquote className="text-base sm:text-lg text-gray-700 italic leading-relaxed">
                     "{reviews[currentReview].text}"
                   </blockquote>
                 </div>
                 <div className="border-t pt-4">
-                  <h4 className="text-xl font-semibold text-gray-800">{reviews[currentReview].name}</h4>
-                  <p className="text-gray-600">{reviews[currentReview].location}</p>
-                  <span className="inline-block mt-2 bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">
+                  <h4 className="text-lg sm:text-xl font-semibold text-gray-800">{reviews[currentReview].name}</h4>
+                  <p className="text-sm sm:text-base text-gray-600">{reviews[currentReview].location}</p>
+                  <span className="inline-block mt-2 bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs sm:text-sm">
                     {reviews[currentReview].service}
                   </span>
                 </div>
@@ -151,9 +151,9 @@ const Reviews = () => {
 
               <button 
                 onClick={nextReview}
-                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition duration-300"
+                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition duration-300 flex-shrink-0"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
