@@ -181,7 +181,7 @@ const Reviews = () => {
             <p className="text-gray-600">Zufriedene Kunden</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">4.5★</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">4.7★</div>
             <p className="text-gray-600">Durchschnittliche Bewertung</p>
           </div>
           <div className="text-center">
