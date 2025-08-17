@@ -370,16 +370,20 @@ const Footer = () => {
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a
-              href="#"
+              href="/docs/datenschutz.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-300 hover:text-white text-sm transition duration-300 focus:outline-none"
             >
-              Privacy Policy
+              Datenschutz
             </a>
             <a
-              href="#"
+              href="/docs/impressum.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-300 hover:text-white text-sm transition duration-300 focus:outline-none"
             >
-              Terms of Service
+              Impressum
             </a>
           </div>
         </div>
