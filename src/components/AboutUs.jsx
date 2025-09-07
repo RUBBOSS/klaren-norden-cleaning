@@ -131,7 +131,7 @@ const AboutUs = () => {
 
         {/* Why Choose Us Section */}
         <div className="mt-28 text-center">
-          <h3 className="text-3xl font-bold text-gray-800 mb-8">
+          <h3 className="text-4xl font-bold text-gray-800 mb-8">
             Warum Sie KlarerNorden wählen sollten?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
