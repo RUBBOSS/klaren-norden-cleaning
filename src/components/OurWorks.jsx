@@ -104,10 +104,12 @@ const OurWorks = () => {
 
         {/* Works Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredWorks.map((work) => (
+          {filteredWorks.map((work, index) => (
             <div
               key={work.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300"
+              className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 ${
+                filteredWorks.length === 7 && index === 6 ? 'lg:hidden' : ''
+              }`}
             >
               <div className="relative">
                 {work.beforeAfter ? (

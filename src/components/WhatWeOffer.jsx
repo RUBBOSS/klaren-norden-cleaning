@@ -10,13 +10,13 @@ const WhatWeOffer = () => {
     },
     {
       icon: "/icons/glassCleaning.gif",
-      title: "Glas und Fensterreinigung",
+      title: "Glas - und Fensterreinigung",
       description:
         "Streifenfreie Reinigung von Fenstern, Glasfassaden und Glastrennwänden für klare Sicht!",
     },
     {
       icon: "/icons/cleaningTools.gif",
-      title: "Grund und Endreinigung",
+      title: "Grund - und Endreinigung",
       description:
         "Tiefenreinigung nach Renovierungen, Bauarbeiten oder vor/nach dem Einzug.",
     },
@@ -28,7 +28,7 @@ const WhatWeOffer = () => {
     },
     {
       icon: "/icons/sofa.gif",
-      title: "Teppich & Polsterreinigung",
+      title: "Teppich - Polsterreinigung",
       description:
         "Tiefenreinigung für Teppiche, Läufer und Polstermöbel mit umweltfreundlichen Produkten und fortschrittlichen Techniken.",
     },
