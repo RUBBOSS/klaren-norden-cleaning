@@ -108,7 +108,7 @@ const OurWorks = () => {
             <div
               key={work.id}
               className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 ${
-                filteredWorks.length === 7 && index === 6 ? 'lg:hidden' : ''
+                filteredWorks.length === 7 && index === 6 ? "lg:hidden" : ""
               }`}
             >
               <div className="relative">
