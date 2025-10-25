@@ -6,15 +6,10 @@ import OurWorks from "./components/OurWorks";
 import Reviews from "./components/Reviews";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import MainPageLoader from "./components/MainPageLoader";
 import "./App.css";
 
 function App() {
-	const [isLoading, setIsLoading] = useState(true);
-
-	if (isLoading) {
-		return <MainPageLoader onLoadingComplete={() => setIsLoading(false)} />;
-	}
+	// Loader removed: always render app directly
 
 	return (
 		<div className="App">
