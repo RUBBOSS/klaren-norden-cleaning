@@ -80,7 +80,6 @@ const AboutUs = () => {
                   src="/pictures/MainPic.jpg"
                   alt="Klarer Norden - Professional Cleaning Team"
                   className="w-full h-full object-cover"
-                  loading="lazy"
                 />
               </div>
             </div>

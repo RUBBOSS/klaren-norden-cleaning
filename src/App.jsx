@@ -9,19 +9,17 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-	// Loader removed: always render app directly
-
-	return (
-		<div className="App">
-			<Header />
-			<AboutUs />
-			<WhatWeOffer />
-			<OurWorks />
-			<Reviews />
-			<Contact />
-			<Footer />
-		</div>
-	);
+  return (
+    <div className="App">
+      <Header />
+      <AboutUs />
+      <WhatWeOffer />
+      <OurWorks />
+      <Reviews />
+      <Contact />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
