@@ -28,7 +28,7 @@ const WhatWeOffer = () => {
     },
     {
       icon: "/icons/sofa.gif",
-      title: "Teppich- Polsterreinigung",
+      title: "Teppich- und Polsterreinigung",
       description:
         "Tiefenreinigung für Teppiche, Läufer und Polstermöbel mit umweltfreundlichen Produkten und fortschrittlichen Techniken.",
     },
