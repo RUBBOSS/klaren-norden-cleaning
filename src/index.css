@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light blue scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #87ceeb;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5eb3d6;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: #87ceeb #f3f4f6;
+  scrollbar-width: thin;
+}
+

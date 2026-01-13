@@ -342,7 +342,7 @@ const Footer = () => {
             <div className="flex items-center text-gray-400 text-xs">
               <span className="mr-2">Created by</span>
               <a
-                href="https://ruben1992.netlify.app/"
+                href="https://rub.ninja"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition duration-300 focus:outline-none"
